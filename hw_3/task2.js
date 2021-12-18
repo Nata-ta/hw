@@ -8,11 +8,20 @@
 //         п.5 Запросите у пользователя новый элемент для массива только в случае если предыдущий элемент был найден и вставьте его после найденного элемента.
 
 var cars = ["Mitsubishi", "Honda", "Toyota", "Suzuki", "Audi", "BMW", "Honda", "Mercedes"];
-console.log(cars);
 
-var n = +prompt('Element of array');
+
 var m = prompt('Pleas, enter your car model');
 
-cars.splice(n, 0, m);
+for (var i = 0; i < cars.length; i++) {
+    if (cars[i] == m) {
+        var n = prompt('Please, enter another car model');
+        cars.splice(i + 1, 0, n);
+        break;
+    } else if (i == cars.length - 1) {
+        cars.splice(i + 1, 0, m);
+        break;
+    }
+}
+
 
 console.log(cars);
