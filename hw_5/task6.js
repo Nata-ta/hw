@@ -50,9 +50,11 @@ for (var i = 0; i < companyPers.length; i++) {
     console.log("Salary: " + companyPers[i].salary);
 }
 
-var crit = prompt("Enter criteria (name, sName, age, salary): ");
+console.log("#########################################");
+
+var sort = prompt("Enter criteria (name, sName, age, salary): ");
 companyPers.sort(function (a, b) {
-    switch (crit) {
+    switch (sort) {
         case "name":
             if (a["name"] > b["name"]) {
                 return 1;
@@ -80,4 +82,10 @@ companyPers.sort(function (a, b) {
     }
 })
 
-console.log("Now the list of employees is: " + companyPers);
+for (var i = 0; i < companyPers.length; i++) {
+    console.log("Name: " + companyPers[i].name);
+    console.log("Surname: " + companyPers[i].sName);
+    console.log("Age: " + companyPers[i].age);
+    console.log("Occupation: " + companyPers[i].occupation);
+    console.log("Salary: " + companyPers[i].salary);
+}
