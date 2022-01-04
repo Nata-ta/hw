@@ -115,3 +115,24 @@ var watchList = [
         "Response": "True"
     }
 ];
+
+function getCNFilms(arr) {
+    var result = arr.map(item => ({
+        "Director": item["Director"],
+        "imdbRating": item["imdbRating"]
+    }));
+
+    var filtered = result.filter(item => item["Director"] === "Christopher Nolan")
+
+    return filtered;
+}
+
+var ChristopherNolanList = getCNFilms(watchList);
+console.log(ChristopherNolanList);
+
+var totalRating = ChristopherNolanList.reduce(function (sum, item) {
+    return sum + Number(item["imdbRating"]);
+}, 0);
+
+var AverageRating = totalRating / ChristopherNolanList.length;
+console.log(`Average rating of Christopher Nolan films is ${AverageRating}`);
